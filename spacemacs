@@ -1,0 +1,155 @@
+(setq-default dotspacemacs-themes '(zenburn leuven))
+
+(setq-default
+ dotspacemacs-configuration-layers
+ '(
+   syntax-checking
+   device-tree llvm
+   haskell notmuch python extra-langs c-c++
+   html javascript markdown git))
+
+(defun dotspacemacs/init ()
+  ())
+
+(defun ben-search-archive-thread ()
+  "Archive the currently selected thread (remove its \"inbox\" tag).
+
+This function advances the next thread when finished."
+  (interactive)
+  (notmuch-search-tag "-inbox")
+  (notmuch-search-tag "-unseen")
+  (notmuch-search-next-thread))
+
+(defun notmuch-show-mark-read ()
+  "Mark the current message as read."
+  (notmuch-show-tag-message "-unread")
+  (notmuch-show-tag-message "-unseen"))
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ac-ispell-requires 4)
+ '(ahs-case-fold-search nil)
+ '(ahs-default-range (quote ahs-range-whole-buffer))
+ '(ahs-idle-interval 0.25)
+ '(ahs-idle-timer 0 t)
+ '(ahs-inhibit-face-list nil)
+ '(compilation-message-face (quote default))
+ '(cua-global-mark-cursor-color "#2aa198")
+ '(cua-normal-cursor-color "#657b83")
+ '(cua-overwrite-cursor-color "#b58900")
+ '(cua-read-only-cursor-color "#859900")
+ '(expand-region-contract-fast-key "V")
+ '(expand-region-reset-fast-key "r")
+ '(haskell-interactive-popup-error nil)
+ '(haskell-notify-p t)
+ '(haskell-process-auto-import-loaded-modules t)
+ '(haskell-process-suggest-remove-import-lines t)
+ '(haskell-process-type (quote auto))
+ '(haskell-stylish-on-save nil)
+ '(haskell-tags-on-save t)
+ '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
+ '(highlight-symbol-colors
+   (--map
+    (solarized-color-blend it "#fdf6e3" 0.25)
+    (quote
+     ("#b58900" "#2aa198" "#dc322f" "#6c71c4" "#859900" "#cb4b16" "#268bd2"))))
+ '(highlight-symbol-foreground-color "#586e75")
+ '(highlight-tail-colors
+   (quote
+    (("#eee8d5" . 0)
+     ("#B4C342" . 20)
+     ("#69CABF" . 30)
+     ("#69B7F0" . 50)
+     ("#DEB542" . 60)
+     ("#F2804F" . 70)
+     ("#F771AC" . 85)
+     ("#eee8d5" . 100))))
+ '(hl-bg-colors
+   (quote
+    ("#DEB542" "#F2804F" "#FF6E64" "#F771AC" "#9EA0E5" "#69B7F0" "#69CABF" "#B4C342")))
+ '(hl-fg-colors
+   (quote
+    ("#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3")))
+ '(if (version< emacs-version "24.4"))
+ '(magit-diff-use-overlays nil)
+ '(mail-envelope-from (quote header))
+ '(mail-host-address "gmail.com")
+ '(mail-self-blind t)
+ '(mail-specify-envelope-from t)
+ '(message-auto-save-directory "~/.mail/drafts")
+ '(message-confirm-send t)
+ '(message-directory "~/.mail/")
+ '(message-forward-as-mime nil)
+ '(message-forward-ignored-headers
+   (quote
+    ("^Content-Transfer-Encoding:" "^X-" "^Received:" "^DKIM-" "^Authentication-Results:")))
+ '(message-mode-hook nil)
+ '(message-sendmail-envelope-from (quote header))
+ '(message-sendmail-extra-arguments nil)
+ '(message-sendmail-f-is-evil nil)
+ '(message-setup-hook (quote (mml-secure-sign-pgpmime)))
+ '(mml2015-signers (quote ("Benjamin Gamari <ben@smart-cactus.org>")))
+ '(notmuch-archive-tags (quote ("-inbox" "-unseen")))
+ '(notmuch-saved-searches
+   (quote
+    ((:name "inbox" :query "tag:inbox" :key "i")
+     (:name "unread" :query "tag:unread and tag:unseen" :key "u")
+     (:name "flagged" :query "tag:flagged" :key "f")
+     (:name "sent" :query "tag:sent" :key "t")
+     (:name "drafts" :query "tag:draft" :key "d")
+     (:name "all mail" :query "*" :key "a"))))
+ '(notmuch-search-line-faces
+   (quote
+    (("unread" :weight bold)
+     ("flagged" :foreground "salmon"))))
+ '(notmuch-search-oldest-first nil)
+ '(notmuch-tag-formats
+   (quote
+    (("unread"
+      (propertize tag
+                  (quote face)
+                  (quote
+                   (:foreground "red"))))
+     ("flagged"
+      (notmuch-tag-format-image-data tag
+                                     (notmuch-tag-star-icon))
+      (propertize tag
+                  (quote face)
+                  (quote
+                   (:foreground "blue"))))
+     (".bf_ham")
+     (".bf_spam")
+     ("list"
+      (notmuch-apply-face tag
+                          (quote
+                           (:foreground "dark gray"))))
+     ("inbox"
+      (notmuch-apply-face tag
+                          (quote
+                           (:foreground "deep sky blue")))))))
+ '(org-agenda-files
+   (quote
+    ("~/org/ta.org" "~/org/thesis.org" "~/org/projects.org" "~/org/tasks.org")))
+ '(org-mobile-directory "/scpc:ben@mw0.mooo.com:mobile-org")
+ '(pos-tip-background-color "#eee8d5")
+ '(pos-tip-foreground-color "#586e75")
+ '(ring-bell-function (quote ignore) t)
+ '(send-mail-function (quote sendmail-send-it))
+ '(sendmail-program "/usr/local/bin/msmtp")
+ '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
+ '(user-mail-address "ben@smart-cactus.org")
+ '(weechat-color-list
+   (quote
+    (unspecified "#fdf6e3" "#eee8d5" "#990A1B" "#dc322f" "#546E00" "#859900" "#7B6000" "#b58900" "#00629D" "#268bd2" "#93115C" "#d33682" "#00736F" "#2aa198" "#657b83" "#839496"))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:foreground "#DCDCCC" :background "#3F3F3F"))))
+ '(notmuch-crypto-part-header ((t (:foreground "deep sky blue"))))
+ '(notmuch-tag-face ((t (:foreground "DarkSlateGray3")))))
+
