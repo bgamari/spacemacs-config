@@ -1,7 +1,7 @@
 (defun dotspacemacs/layers ()
   "Configuration Layers declaration."
   (setq-default
-   dotspacemacs-configuration-layer-path '(~/.spacemacs-config/private)
+   dotspacemacs-configuration-layer-path '("~/.spacemacs-config/private/")
    dotspacemacs-configuration-layers
    '(
      syntax-checking
