@@ -1,15 +1,61 @@
-(setq-default dotspacemacs-themes '(zenburn leuven))
-
-(setq-default
- dotspacemacs-configuration-layers
- '(
-   syntax-checking
-   device-tree llvm
-   haskell notmuch python extra-langs c-c++
-   html javascript markdown git))
+(defun dotspacemacs/layers ()
+  "Configuration Layers declaration."
+  (setq-default
+   dotspacemacs-configuration-layer-path '(~/.spacemacs-config/private)
+   dotspacemacs-configuration-layers
+   '(
+     syntax-checking
+     device-tree llvm
+     haskell notmuch python extra-langs c-c++
+     html javascript markdown git
+     )
+   dotspacemacs-excluded-packages '()
+   dotspacemacs-delete-orphan-packages t))
 
 (defun dotspacemacs/init ()
-  ())
+  "Initialization function.
+This function is called at the very startup of Spacemacs initialization
+before layers configuration."
+  (setq-default
+   dotspacemacs-editing-style 'vim
+   ;; If non nil output loading progess in `*Messages*' buffer.
+   dotspacemacs-verbose-loading nil
+   dotspacemacs-startup-banner 'official
+   dotspacemacs-always-show-changelog t
+   dotspacemacs-startup-lists '(recents projects)
+   dotspacemacs-themes '(zenburn
+                         solarized-light
+                         solarized-dark
+                         leuven
+                         monokai
+                         zenburn)
+   dotspacemacs-colorize-cursor-according-to-state t
+   dotspacemacs-default-font '("Source Code Pro"
+                               :size 13
+                               :weight normal
+                               :width normal
+                               :powerline-scale 1.1)
+   dotspacemacs-leader-key "SPC"
+   dotspacemacs-emacs-leader-key "M-m"
+   dotspacemacs-major-mode-leader-key ","
+   dotspacemacs-major-mode-emacs-leader-key "C-M-m"
+   dotspacemacs-command-key ":"
+   dotspacemacs-enable-paste-micro-state t
+   dotspacemacs-guide-key-delay 0.4
+   dotspacemacs-loading-progress-bar t
+   dotspacemacs-fullscreen-at-startup nil
+   dotspacemacs-fullscreen-use-non-native nil
+   dotspacemacs-maximized-at-startup nil
+   dotspacemacs-active-transparency 90
+   dotspacemacs-inactive-transparency 90
+   dotspacemacs-mode-line-unicode-symbols t
+   dotspacemacs-smooth-scrolling t
+   dotspacemacs-smartparens-strict-mode nil
+   dotspacemacs-persistent-server t
+   dotspacemacs-default-package-repository nil
+   )
+  ;; User initialization goes here
+  )
 
 (defun ben-search-archive-thread ()
   "Archive the currently selected thread (remove its \"inbox\" tag).
