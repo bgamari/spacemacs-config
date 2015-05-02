@@ -18,6 +18,7 @@ This function is called at the very startup of Spacemacs initialization
 before layers configuration."
   (setq-default
    dotspacemacs-editing-style 'vim
+   dotspacemacs-additional-packages '(llvm-mode dts-mode)
    ;; If non nil output loading progess in `*Messages*' buffer.
    dotspacemacs-verbose-loading nil
    dotspacemacs-startup-banner 'official
