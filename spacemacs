@@ -5,7 +5,6 @@
    dotspacemacs-configuration-layers
    '(
      syntax-checking
-     device-tree llvm
      haskell notmuch python extra-langs c-c++
      html javascript markdown git
      )
