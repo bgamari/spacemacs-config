@@ -35,4 +35,9 @@
               (kbd "n") 'notmuch-show-next-open-message)
      (evilify notmuch-tree-mode notmuch-tree-mode-map)
      (evilify notmuch-search-mode notmuch-search-mode-map)
+     (evil-define-key 'visual notmuch-search-mode-map
+              "*" 'notmuch-search-tag-all
+              "a" 'notmuch-search-archive-thread
+              "-" 'notmuch-search-remove-tag
+              "+" 'notmuch-search-add-tag)
      )))
