@@ -123,7 +123,7 @@ This function advances the next thread when finished."
  '(if (version< emacs-version "24.4"))
  '(magit-diff-use-overlays nil)
  '(mail-envelope-from (quote header))
- '(mail-host-address "gmail.com")
+ '(mail-host-address "smart-cactus.org")
  '(mail-self-blind t)
  '(mail-specify-envelope-from t)
  '(message-auto-save-directory "~/.mail/drafts")
