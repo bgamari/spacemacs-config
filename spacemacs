@@ -186,6 +186,7 @@ This function advances the next thread when finished."
  '(pos-tip-background-color "#eee8d5")
  '(pos-tip-foreground-color "#586e75")
  '(ring-bell-function (quote ignore) t)
+ '(safe-local-variable-values (quote ((buffer-file-coding-system . utf-8-unix))))
  '(send-mail-function (quote sendmail-send-it))
  '(sendmail-program "/usr/local/bin/msmtp")
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
