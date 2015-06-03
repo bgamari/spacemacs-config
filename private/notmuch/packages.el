@@ -10,11 +10,11 @@
 ;;
 ;;; License: GPLv3
 
-(defvar notmuch-packages
+(setq notmuch-packages
   '(notmuch)
 )
 
-(defvar notmuch-excluded-packages '())
+(setq notmuch-excluded-packages '())
 
 (defun notmuch/init-notmuch ()
   "Initialize notmuch"

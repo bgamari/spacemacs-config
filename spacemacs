@@ -6,7 +6,7 @@
    '(
      syntax-checking
      haskell notmuch python extra-langs c-c++
-     html javascript markdown git
+     html javascript markdown git emacs-lisp shell
      )
    dotspacemacs-excluded-packages '()
    dotspacemacs-delete-orphan-packages t))
