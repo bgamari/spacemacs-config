@@ -188,7 +188,8 @@ This function advances the next thread when finished."
  '(ring-bell-function (quote ignore) t)
  '(safe-local-variable-values
    (quote
-    ((sgml-parent-document "users_guide.xml" "book")
+    ((engine . ctemplate)
+     (sgml-parent-document "users_guide.xml" "book")
      (sgml-parent-document "users_guide.xml" "book" "chapter" "sect1")
      (sgml-parent-document "users_guide.xml" "book" "chapter")
      (buffer-file-coding-system . utf-8-unix))))
