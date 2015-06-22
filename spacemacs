@@ -85,6 +85,7 @@ This function advances the next thread when finished."
  '(ahs-idle-timer 0 t)
  '(ahs-inhibit-face-list nil)
  '(compilation-message-face (quote default))
+ '(confirm-kill-emacs (quote y-or-n-p))
  '(cua-global-mark-cursor-color "#2aa198")
  '(cua-normal-cursor-color "#657b83")
  '(cua-overwrite-cursor-color "#b58900")
