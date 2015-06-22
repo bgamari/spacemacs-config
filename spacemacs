@@ -147,10 +147,9 @@ This function advances the next thread when finished."
    (quote
     ((:name "inbox" :query "tag:inbox" :key "i")
      (:name "unread" :query "tag:unread and tag:unseen" :key "u")
-     (:name "flagged" :query "tag:flagged" :key "f")
-     (:name "sent" :query "tag:sent" :key "t")
      (:name "drafts" :query "tag:draft" :key "d")
-     (:name "all mail" :query "*" :key "a"))))
+     (:name "todo" :query "tag:todo")
+     (:name "to-review" :query "tag:to-review"))))
  '(notmuch-search-line-faces
    (quote
     (("unread" :weight bold)
