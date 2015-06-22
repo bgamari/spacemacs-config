@@ -125,6 +125,7 @@ This function advances the next thread when finished."
     ("#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3")))
  '(if (version< emacs-version "24.4"))
  '(magit-diff-use-overlays nil)
+ '(magit-use-overlays nil)
  '(mail-envelope-from (quote header))
  '(mail-host-address "smart-cactus.org")
  '(mail-self-blind t)
@@ -209,4 +210,3 @@ This function advances the next thread when finished."
  '(default ((t (:foreground "#DCDCCC" :background "#3F3F3F"))))
  '(notmuch-crypto-part-header ((t (:foreground "deep sky blue"))))
  '(notmuch-tag-face ((t (:foreground "DarkSlateGray3")))))
-
