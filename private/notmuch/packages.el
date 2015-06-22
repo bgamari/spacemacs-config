@@ -28,8 +28,17 @@
            (lambda (prompt collection initial-input)
              (completing-read prompt (cons initial-input collection) nil t nil 'notmuch-address-history)))
 
-     ;(evil-leader/set-key)
+     ;;(spacemacs/declare-prefix-for-mode 'notmuch-show-mode "n" "notmuch")
+     ;;(spacemacs/declare-prefix-for-mode 'notmuch-show-mode "n." "MIME parts")
+     (evil-leader/set-key-for-mode 'notmuch-show-mode
+       "nc" 'notmuch-show-stack-cc
+       "n|" 'notmuch-show-pipe-message
+       "nw" 'notmuch-show-save-attachments
+       "nV" 'notmuch-show-view-raw-message)
+
      (evilify notmuch-hello-mode notmuch-hello-mode-map)
+     (evilify notmuch-show-mode notmuch-show-stash-map)
+     (evilify notmuch-show-mode notmuch-show-part-map)
      (evilify notmuch-show-mode notmuch-show-mode-map
               (kbd "N") 'notmuch-show-next-message
               (kbd "n") 'notmuch-show-next-open-message)
