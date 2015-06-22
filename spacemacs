@@ -57,6 +57,7 @@ before layers configuration."
    dotspacemacs-default-package-repository nil
    )
   ;; User initialization goes here
+  (add-hook 'find-file-hook 'my-find-file-check-make-large-file-read-only-hook)
   )
 
 (defun ben-search-archive-thread ()
@@ -72,6 +73,15 @@ This function advances the next thread when finished."
   "Mark the current message as read."
   (notmuch-show-tag-message "-unread")
   (notmuch-show-tag-message "-unseen"))
+
+(defun my-find-file-check-make-large-file-read-only-hook ()
+  "If a file is over a given size, make the buffer read only."
+  (when (> (buffer-size) (* 10 1024 1024))
+    (setq buffer-read-only t)
+    (buffer-disable-undo)
+    (fundamental-mode)
+                                        ; (message "Buffer is set to read-only because it is large.  Undo also disabled.")
+    ))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
