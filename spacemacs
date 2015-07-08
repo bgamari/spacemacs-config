@@ -4,9 +4,9 @@
    dotspacemacs-configuration-layer-path '("~/.spacemacs-config/private/")
    dotspacemacs-configuration-layers
    '(
-     syntax-checking
+     syntax-checking latex
      haskell notmuch python extra-langs c-c++
-     html javascript markdown git emacs-lisp shell
+     html javascript markdown git github emacs-lisp shell
      )
    dotspacemacs-excluded-packages '()
    dotspacemacs-delete-orphan-packages t))
@@ -19,7 +19,7 @@ before layers configuration."
    frame-title-format "%b - emacs"
 
    dotspacemacs-editing-style 'vim
-   dotspacemacs-additional-packages '(llvm-mode dts-mode)
+   dotspacemacs-additional-packages '(llvm-mode dts-mode visual-fill-column)
    ;; If non nil output loading progess in `*Messages*' buffer.
    dotspacemacs-verbose-loading nil
    dotspacemacs-startup-banner 'official
