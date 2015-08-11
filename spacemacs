@@ -218,5 +218,6 @@ This function advances the next thread when finished."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:foreground "#DCDCCC" :background "#3F3F3F"))))
+ '(evil-search-highlight-persist-highlight-face ((t (:inherit region :background "burlywood4"))))
  '(notmuch-crypto-part-header ((t (:foreground "deep sky blue"))))
  '(notmuch-tag-face ((t (:foreground "DarkSlateGray3")))))
