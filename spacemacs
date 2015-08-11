@@ -54,7 +54,6 @@ before layers configuration."
    dotspacemacs-mode-line-unicode-symbols t
    dotspacemacs-smooth-scrolling t
    dotspacemacs-smartparens-strict-mode nil
-   dotspacemacs-persistent-server t
    dotspacemacs-default-package-repository nil
    )
   ;; User initialization goes here
