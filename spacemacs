@@ -205,7 +205,7 @@ This function advances the next thread when finished."
      (sgml-parent-document "users_guide.xml" "book" "chapter")
      (buffer-file-coding-system . utf-8-unix))))
  '(send-mail-function (quote sendmail-send-it))
- '(sendmail-program "/usr/local/bin/msmtp")
+ '(sendmail-program "/usr/bin/msmtp")
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
  '(user-mail-address "ben@smart-cactus.org")
  '(weechat-color-list
