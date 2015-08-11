@@ -4,9 +4,11 @@
    dotspacemacs-configuration-layer-path '("~/.spacemacs-config/private/")
    dotspacemacs-configuration-layers
    '(
+     auto-completion
      syntax-checking latex
      haskell notmuch python extra-langs c-c++
      html javascript markdown git github emacs-lisp shell
+     idris asciidoc rust purescript
      )
    dotspacemacs-excluded-packages '()
    dotspacemacs-delete-orphan-packages t))
