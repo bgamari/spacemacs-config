@@ -91,7 +91,7 @@ This function advances the next thread when finished."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ac-ispell-requires 4)
+ '(ac-ispell-requires 4 t)
  '(ahs-case-fold-search nil)
  '(ahs-default-range (quote ahs-range-whole-buffer))
  '(ahs-idle-interval 0.25)
@@ -197,9 +197,12 @@ This function advances the next thread when finished."
    (quote
     ("~/org/ta.org" "~/org/thesis.org" "~/org/projects.org" "~/org/tasks.org")))
  '(org-mobile-directory "/scpc:ben@mw0.mooo.com:mobile-org")
+ '(package-selected-packages
+   (quote
+    (professional-theme hexrgb zenburn-theme yaml-mode wolfram-mode window-numbering which-key web-mode web-beautify volatile-highlights visual-fill-column vi-tilde-fringe use-package toml-mode tagedit stan-mode spray spacemacs-theme smooth-scrolling smeargle slim-mode shm shell-pop scss-mode scad-mode sass-mode rust-mode rfringe rainbow-delimiters quelpa qml-mode pyvenv pythonic pytest pyenv-mode psci powerline popwin pip-requirements pcre2el paradox page-break-lines open-junk-file notmuch nix-mode neotree multi-term move-text monokai-theme mmm-mode matlab-mode markdown-toc magit-gitflow macrostep llvm-mode linum-relative leuven-theme less-css-mode julia-mode json-mode js2-refactor js-doc jade-mode info+ indent-guide ido-vertical-mode hy-mode hungry-delete hl-anything hindent highlight-parentheses highlight-numbers highlight-indentation helm-unicode helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-gitignore helm-flyspell helm-descbinds helm-css-scss helm-core helm-c-yasnippet helm-ag haskell-snippets google-translate golden-ratio github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gist gh-md fringe-helper flycheck-rust flycheck-pos-tip flycheck-haskell flx-ido flatui-theme fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-terminal-cursor-changer evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-matchit evil-lisp-state evil-jumper evil-indent-textobject evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu eshell-prompt-extras esh-help emmet-mode elisp-slime-nav dts-mode disaster define-word cython-mode company-web company-tern company-statistics company-racer company-quickhelp company-ghc company-cabal company-c-headers company-auctex company-anaconda coffee-mode cmm-mode cmake-mode clean-aindent-mode clang-format buffer-move auto-yasnippet auto-highlight-symbol auto-dictionary arduino-mode aggressive-indent adoc-mode adaptive-wrap ace-window ace-link ace-jump-mode ac-ispell)))
  '(pos-tip-background-color "#eee8d5")
  '(pos-tip-foreground-color "#586e75")
- '(ring-bell-function (quote ignore) t)
+ '(ring-bell-function (quote ignore))
  '(safe-local-variable-values
    (quote
     ((engine . ctemplate)
@@ -207,20 +210,22 @@ This function advances the next thread when finished."
      (sgml-parent-document "users_guide.xml" "book" "chapter" "sect1")
      (sgml-parent-document "users_guide.xml" "book" "chapter")
      (buffer-file-coding-system . utf-8-unix))))
+ '(select-enable-primary t)
  '(send-mail-function (quote sendmail-send-it))
  '(sendmail-program "/usr/bin/msmtp")
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
  '(user-mail-address "ben@smart-cactus.org")
  '(weechat-color-list
    (quote
-    (unspecified "#fdf6e3" "#eee8d5" "#990A1B" "#dc322f" "#546E00" "#859900" "#7B6000" "#b58900" "#00629D" "#268bd2" "#93115C" "#d33682" "#00736F" "#2aa198" "#657b83" "#839496")))
- '(x-select-enable-primary t))
+    (unspecified "#fdf6e3" "#eee8d5" "#990A1B" "#dc322f" "#546E00" "#859900" "#7B6000" "#b58900" "#00629D" "#268bd2" "#93115C" "#d33682" "#00736F" "#2aa198" "#657b83" "#839496"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:foreground "#DCDCCC" :background "#3F3F3F"))))
+ '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
+ '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil))))
  '(evil-search-highlight-persist-highlight-face ((t (:inherit region :background "burlywood4"))))
  '(notmuch-crypto-part-header ((t (:foreground "deep sky blue"))))
  '(notmuch-tag-face ((t (:foreground "DarkSlateGray3")))))
