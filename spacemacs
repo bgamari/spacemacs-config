@@ -21,13 +21,16 @@ before layers configuration."
    frame-title-format "%b - emacs"
 
    dotspacemacs-editing-style 'vim
-   dotspacemacs-additional-packages '(llvm-mode dts-mode visual-fill-column)
+   dotspacemacs-additional-packages '(llvm-mode dts-mode visual-fill-column
+                                                flatui-theme professional-theme)
    ;; If non nil output loading progess in `*Messages*' buffer.
    dotspacemacs-verbose-loading nil
    dotspacemacs-startup-banner 'official
    dotspacemacs-always-show-changelog t
    dotspacemacs-startup-lists '(recents projects)
    dotspacemacs-themes '(zenburn
+                         flatui
+                         professional
                          solarized-light
                          solarized-dark
                          leuven
