@@ -6,9 +6,10 @@
    '(
      auto-completion
      syntax-checking latex
-     haskell notmuch python extra-langs c-c++
+     notmuch python extra-langs c-c++
      html javascript markdown git github emacs-lisp shell
      idris asciidoc rust purescript
+     (haskell :variables haskell-enable-ghc-mod-support nil)
      )
    dotspacemacs-excluded-packages '()
    dotspacemacs-delete-orphan-packages t))
@@ -17,6 +18,8 @@
   "Initialization function.
 This function is called at the very startup of Spacemacs initialization
 before layers configuration."
+  (eval-after-load "vc" '(remove-hook 'find-file-hook 'vc-find-file-hook))
+  (eval-after-load "git-commit" '(remove-hook 'find-file-hook 'git-commit-setup-check-buffer))
   (setq-default
    frame-title-format "%b - emacs"
 
@@ -92,19 +95,22 @@ This function advances the next thread when finished."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(ac-ispell-requires 4 t)
- '(ahs-case-fold-search nil)
- '(ahs-default-range (quote ahs-range-whole-buffer))
- '(ahs-idle-interval 0.25)
+ '(ahs-case-fold-search nil t)
+ '(ahs-default-range (quote ahs-range-whole-buffer) t)
+ '(ahs-idle-interval 0.25 t)
  '(ahs-idle-timer 0 t)
- '(ahs-inhibit-face-list nil)
+ '(ahs-inhibit-face-list nil t)
+ '(asm-comment-char 35)
  '(compilation-message-face (quote default))
  '(confirm-kill-emacs (quote y-or-n-p))
  '(cua-global-mark-cursor-color "#2aa198")
  '(cua-normal-cursor-color "#657b83")
  '(cua-overwrite-cursor-color "#b58900")
  '(cua-read-only-cursor-color "#859900")
+ '(evil-escape-mode nil)
  '(expand-region-contract-fast-key "V")
  '(expand-region-reset-fast-key "r")
+ '(fci-rule-color "#383838" t)
  '(haskell-indentation-left-offset 4)
  '(haskell-interactive-popup-error nil t)
  '(haskell-notify-p t)
@@ -199,7 +205,7 @@ This function advances the next thread when finished."
  '(org-mobile-directory "/scpc:ben@mw0.mooo.com:mobile-org")
  '(package-selected-packages
    (quote
-    (professional-theme hexrgb zenburn-theme yaml-mode wolfram-mode window-numbering which-key web-mode web-beautify volatile-highlights visual-fill-column vi-tilde-fringe use-package toml-mode tagedit stan-mode spray spacemacs-theme smooth-scrolling smeargle slim-mode shm shell-pop scss-mode scad-mode sass-mode rust-mode rfringe rainbow-delimiters quelpa qml-mode pyvenv pythonic pytest pyenv-mode psci powerline popwin pip-requirements pcre2el paradox page-break-lines open-junk-file notmuch nix-mode neotree multi-term move-text monokai-theme mmm-mode matlab-mode markdown-toc magit-gitflow macrostep llvm-mode linum-relative leuven-theme less-css-mode julia-mode json-mode js2-refactor js-doc jade-mode info+ indent-guide ido-vertical-mode hy-mode hungry-delete hl-anything hindent highlight-parentheses highlight-numbers highlight-indentation helm-unicode helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-gitignore helm-flyspell helm-descbinds helm-css-scss helm-core helm-c-yasnippet helm-ag haskell-snippets google-translate golden-ratio github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gist gh-md fringe-helper flycheck-rust flycheck-pos-tip flycheck-haskell flx-ido flatui-theme fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-terminal-cursor-changer evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-matchit evil-lisp-state evil-jumper evil-indent-textobject evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu eshell-prompt-extras esh-help emmet-mode elisp-slime-nav dts-mode disaster define-word cython-mode company-web company-tern company-statistics company-racer company-quickhelp company-ghc company-cabal company-c-headers company-auctex company-anaconda coffee-mode cmm-mode cmake-mode clean-aindent-mode clang-format buffer-move auto-yasnippet auto-highlight-symbol auto-dictionary arduino-mode aggressive-indent adoc-mode adaptive-wrap ace-window ace-link ace-jump-mode ac-ispell)))
+    (hydra magit-annex ws-butler evil-magit restart-emacs helm-flx helm-company evil-mc auto-compile deferred dash spaceline idris-mode markup-faces company iedit gh which-key quelpa package-build use-package s web-mode toml-mode tagedit stan-mode spacemacs-theme shell-pop racer pyvenv pytest pyenv-mode paradox notmuch neotree mmm-mode markdown-toc magit-gitflow macrostep linum-relative leuven-theme julia-mode js2-refactor info+ indent-guide ido-vertical-mode helm-swoop helm-projectile helm-make helm-ag google-translate golden-ratio github-browse-file git-link gh-md expand-region exec-path-from-shell evil-terminal-cursor-changer evil-search-highlight-persist evil-matchit evil-jumper evil-indent-textobject evil-escape elisp-slime-nav cmake-mode clean-aindent-mode aggressive-indent ace-window ace-link avy names anaconda-mode json-rpc auctex ghc dash-functional tern anzu smartparens highlight flycheck haskell-mode projectile helm helm-core parent-mode yasnippet multiple-cursors js2-mode json-reformat magit magit-popup git-commit with-editor async markdown-mode spinner rust-mode evil magit-gh-pulls professional-theme zenburn-theme wolfram-mode window-numbering web-beautify volatile-highlights visual-fill-column vi-tilde-fringe spray smooth-scrolling smeargle slim-mode shm scss-mode scad-mode sass-mode rfringe rainbow-delimiters qml-mode pythonic psci powerline popwin pip-requirements pcre2el page-break-lines open-junk-file multi-term move-text monokai-theme matlab-mode llvm-mode less-css-mode json-mode js-doc jade-mode hy-mode hungry-delete hindent highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-pydoc helm-mode-manager helm-gitignore helm-descbinds helm-css-scss helm-c-yasnippet haskell-snippets gitconfig-mode gitattributes-mode git-timemachine git-messenger gist fringe-helper flycheck-rust flycheck-pos-tip flycheck-haskell flx-ido flatui-theme fill-column-indicator fancy-battery evil-visualstar evil-tutor evil-surround evil-numbers evil-nerd-commenter evil-lisp-state evil-iedit-state evil-exchange evil-args evil-anzu eval-sexp-fu eshell-prompt-extras esh-help emmet-mode dts-mode disaster define-word cython-mode company-web company-tern company-statistics company-racer company-quickhelp company-ghc company-cabal company-c-headers company-auctex company-anaconda coffee-mode cmm-mode clang-format buffer-move auto-yasnippet auto-highlight-symbol auto-dictionary arduino-mode adoc-mode adaptive-wrap ac-ispell)))
  '(pos-tip-background-color "#eee8d5")
  '(pos-tip-foreground-color "#586e75")
  '(ring-bell-function (quote ignore))
@@ -215,6 +221,28 @@ This function advances the next thread when finished."
  '(sendmail-program "/usr/bin/msmtp")
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
  '(user-mail-address "ben@smart-cactus.org")
+ '(vc-annotate-background "#2B2B2B")
+ '(vc-annotate-color-map
+   (quote
+    ((20 . "#BC8383")
+     (40 . "#CC9393")
+     (60 . "#DFAF8F")
+     (80 . "#D0BF8F")
+     (100 . "#E0CF9F")
+     (120 . "#F0DFAF")
+     (140 . "#5F7F5F")
+     (160 . "#7F9F7F")
+     (180 . "#8FB28F")
+     (200 . "#9FC59F")
+     (220 . "#AFD8AF")
+     (240 . "#BFEBBF")
+     (260 . "#93E0E3")
+     (280 . "#6CA0A3")
+     (300 . "#7CB8BB")
+     (320 . "#8CD0D3")
+     (340 . "#94BFF3")
+     (360 . "#DC8CC3"))))
+ '(vc-annotate-very-old-color "#DC8CC3")
  '(weechat-color-list
    (quote
     (unspecified "#fdf6e3" "#eee8d5" "#990A1B" "#dc322f" "#546E00" "#859900" "#7B6000" "#b58900" "#00629D" "#268bd2" "#93115C" "#d33682" "#00736F" "#2aa198" "#657b83" "#839496"))))
@@ -223,7 +251,7 @@ This function advances the next thread when finished."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:foreground "#DCDCCC" :background "#3F3F3F"))))
+ '(default ((t (:family "Source Code Pro" :foundry "adobe" :slant normal :weight normal :height 115 :width normal))))
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil))))
  '(evil-search-highlight-persist-highlight-face ((t (:inherit region :background "burlywood4"))))
