@@ -18,8 +18,6 @@
   "Initialization function.
 This function is called at the very startup of Spacemacs initialization
 before layers configuration."
-  (eval-after-load "vc" '(remove-hook 'find-file-hook 'vc-find-file-hook))
-  (eval-after-load "git-commit" '(remove-hook 'find-file-hook 'git-commit-setup-check-buffer))
   (setq-default
    frame-title-format "%b - emacs"
 
