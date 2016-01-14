@@ -151,6 +151,7 @@ This function advances the next thread when finished."
  '(mail-host-address "smart-cactus.org")
  '(mail-self-blind t)
  '(mail-specify-envelope-from t)
+ '(markdown-enable-math t)
  '(message-auto-save-directory "~/.mail/drafts")
  '(message-confirm-send t)
  '(message-directory "~/.mail/")
