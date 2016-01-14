@@ -169,6 +169,7 @@ This function advances the next thread when finished."
  '(notmuch-saved-searches
    (quote
     ((:name "inbox" :query "tag:inbox" :key "i")
+     (:name "well-typed" :query "tag:inbox and tag:well-typed")
      (:name "unread" :query "tag:unread and tag:unseen" :key "u")
      (:name "drafts" :query "tag:draft" :key "d")
      (:name "todo" :query "tag:todo")
