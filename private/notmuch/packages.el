@@ -31,21 +31,21 @@
      ;;(spacemacs/declare-prefix-for-mode 'notmuch-show-mode "n" "notmuch")
      ;;(spacemacs/declare-prefix-for-mode 'notmuch-show-mode "n." "MIME parts")
 
-     (evilify notmuch-hello-mode notmuch-hello-mode-map)
-     (evilify notmuch-show-mode notmuch-show-stash-map)
-     (evilify notmuch-show-mode notmuch-show-part-map)
-     (evilify notmuch-show-mode notmuch-show-mode-map
+     (evilified-state-evilify notmuch-hello-mode notmuch-hello-mode-map)
+     (evilified-state-evilify notmuch-show-mode notmuch-show-stash-map)
+     (evilified-state-evilify notmuch-show-mode notmuch-show-part-map)
+     (evilified-state-evilify notmuch-show-mode notmuch-show-mode-map
               (kbd "N") 'notmuch-show-next-message
               (kbd "n") 'notmuch-show-next-open-message)
-     (evilify notmuch-tree-mode notmuch-tree-mode-map)
-     (evilify notmuch-search-mode notmuch-search-mode-map)
+     (evilified-state-evilify notmuch-tree-mode notmuch-tree-mode-map)
+     (evilified-state-evilify notmuch-search-mode notmuch-search-mode-map)
      (evil-define-key 'visual notmuch-search-mode-map
               "*" 'notmuch-search-tag-all
               "a" 'notmuch-search-archive-thread
               "-" 'notmuch-search-remove-tag
               "+" 'notmuch-search-add-tag)
 
-     (evil-leader/set-key-for-mode 'notmuch-show-mode
+     (spacemacs/set-leader-keys-for-major-mode 'notmuch-show-mode
        "nc" 'notmuch-show-stack-cc
        "n|" 'notmuch-show-pipe-message
        "nw" 'notmuch-show-save-attachments
