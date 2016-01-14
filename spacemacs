@@ -224,6 +224,7 @@ This function advances the next thread when finished."
  '(send-mail-function (quote sendmail-send-it))
  '(sendmail-program "/usr/bin/msmtp")
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
+ '(tags-case-fold-search nil)
  '(user-mail-address "ben@smart-cactus.org")
  '(vc-annotate-background "#2B2B2B")
  '(vc-annotate-color-map
