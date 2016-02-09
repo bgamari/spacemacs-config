@@ -31,14 +31,17 @@
      ;;(spacemacs/declare-prefix-for-mode 'notmuch-show-mode "n" "notmuch")
      ;;(spacemacs/declare-prefix-for-mode 'notmuch-show-mode "n." "MIME parts")
 
-     (evilified-state-evilify notmuch-hello-mode notmuch-hello-mode-map)
-     (evilified-state-evilify notmuch-show-mode notmuch-show-stash-map)
-     (evilified-state-evilify notmuch-show-mode notmuch-show-part-map)
-     (evilified-state-evilify notmuch-show-mode notmuch-show-mode-map
-              (kbd "N") 'notmuch-show-next-message
-              (kbd "n") 'notmuch-show-next-open-message)
-     (evilified-state-evilify notmuch-tree-mode notmuch-tree-mode-map)
-     (evilified-state-evilify notmuch-search-mode notmuch-search-mode-map)
+     (evilified-state-evilify-map 'notmuch-hello-mode-map :mode notmuch-hello-mode)
+
+     (evilified-state-evilify-map 'notmuch-show-stash-map :mode notmuch-show-mode)
+     (evilified-state-evilify-map 'notmuch-show-part-map :mode notmuch-show-mode)
+     (evilified-state-evilify-map 'notmuch-show-mode-map :mode notmuch-show-mode
+       :bindings
+       (kbd "N") 'notmuch-show-next-message
+       (kbd "n") 'notmuch-show-next-open-message)
+     (evilified-state-evilify-map 'notmuch-tree-mode-map :mode notmuch-tree-mode)
+     (evilified-state-evilify-map 'notmuch-search-mode-map :mode notmuch-search-mode)
+     (evilified-state-evilify-map 'notmuch-search-mode-map :mode notmuch-search-mode)
      (evil-define-key 'visual notmuch-search-mode-map
               "*" 'notmuch-search-tag-all
               "a" 'notmuch-search-archive-thread
