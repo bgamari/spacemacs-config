@@ -93,12 +93,12 @@ This function advances the next thread when finished."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ac-ispell-requires 4)
- '(ahs-case-fold-search nil t)
- '(ahs-default-range (quote ahs-range-whole-buffer) t)
- '(ahs-idle-interval 0.25 t)
+ '(ac-ispell-requires 4 t)
+ '(ahs-case-fold-search nil)
+ '(ahs-default-range (quote ahs-range-whole-buffer))
+ '(ahs-idle-interval 0.25)
  '(ahs-idle-timer 0 t)
- '(ahs-inhibit-face-list nil t)
+ '(ahs-inhibit-face-list nil)
  '(asm-comment-char 35)
  '(compilation-message-face (quote default))
  '(confirm-kill-emacs (quote y-or-n-p))
@@ -109,7 +109,8 @@ This function advances the next thread when finished."
  '(evil-escape-mode nil)
  '(expand-region-contract-fast-key "V")
  '(expand-region-reset-fast-key "r")
- '(fci-rule-color "#383838" t)
+ '(fci-rule-color "#383838")
+ '(flycheck-hlint-ignore-rules (quote ("Eta reduce" "Redundant lambda")))
  '(haskell-indent-spaces 4)
  '(haskell-indentation-ifte-offset 4)
  '(haskell-indentation-layout-offset 4)
@@ -170,7 +171,6 @@ This function advances the next thread when finished."
    (quote
     ((:name "inbox" :query "tag:inbox" :key "i")
      (:name "well-typed" :query "tag:inbox and tag:well-typed")
-     (:name "unread" :query "tag:unread and tag:unseen" :key "u")
      (:name "drafts" :query "tag:draft" :key "d")
      (:name "todo" :query "tag:todo")
      (:name "to-review" :query "tag:to-review"))))
