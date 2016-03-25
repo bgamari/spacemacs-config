@@ -174,7 +174,8 @@ This function advances the next thread when finished."
      (:name "well-typed" :query "tag:inbox and tag:well-typed")
      (:name "drafts" :query "tag:draft" :key "d")
      (:name "todo" :query "tag:todo")
-     (:name "to-review" :query "tag:to-review"))))
+     (:name "to-review" :query "tag:to-review")
+     (:name "unseen ghc tickets" :query "tag:ghc-tickets and tag:unseen"))))
  '(notmuch-search-line-faces
    (quote
     (("unread" :weight bold)
