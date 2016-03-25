@@ -23,7 +23,7 @@ before layers configuration."
    projectile-enable-caching t
 
    dotspacemacs-editing-style 'vim
-   dotspacemacs-additional-packages '(llvm-mode dts-mode visual-fill-column
+   dotspacemacs-additional-packages '(llvm-mode dts-mode visual-fill-column ledger-mode
                                                 flatui-theme professional-theme)
    ;; If non nil output loading progess in `*Messages*' buffer.
    dotspacemacs-verbose-loading nil
@@ -146,6 +146,7 @@ This function advances the next thread when finished."
    (quote
     ("#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3")))
  '(if (version< emacs-version "24.4"))
+ '(ledger-binary-path "hledger")
  '(magit-diff-use-overlays nil)
  '(magit-use-overlays nil)
  '(mail-envelope-from (quote header))
