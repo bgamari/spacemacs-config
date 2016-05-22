@@ -44,8 +44,15 @@ before layers configuration."
    projectile-enable-caching t
 
    dotspacemacs-editing-style 'vim
-   dotspacemacs-additional-packages '(llvm-mode dts-mode visual-fill-column ledger-mode
-                                                flatui-theme professional-theme)
+   dotspacemacs-additional-packages
+   '(llvm-mode
+     dts-mode
+     visual-fill-column
+     ledger-mode
+     flatui-theme
+     professional-theme
+     (flycheck-haskell :location "~/.emacs.d/flycheck-haskell"))
+
    ;; If non nil output loading progess in `*Messages*' buffer.
    dotspacemacs-verbose-loading nil
    dotspacemacs-startup-banner 'official
