@@ -196,6 +196,7 @@ This function advances the next thread when finished."
  '(message-sendmail-extra-arguments nil)
  '(message-sendmail-f-is-evil nil)
  '(message-setup-hook (quote (mml-secure-sign-pgpmime)))
+ '(mml-secure-openpgp-signers (quote ("Benjamin Gamari <ben@smart-cactus.org>")))
  '(mml2015-signers (quote ("Benjamin Gamari <ben@smart-cactus.org>")))
  '(notmuch-archive-tags (quote ("-inbox" "-unseen")))
  '(notmuch-saved-searches
