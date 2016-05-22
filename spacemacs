@@ -151,7 +151,7 @@ This function advances the next thread when finished."
  '(haskell-process-suggest-remove-import-lines t)
  '(haskell-process-type (quote auto))
  '(haskell-stylish-on-save nil)
- '(haskell-tags-on-save t)
+ '(haskell-tags-on-save nil)
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
  '(highlight-symbol-colors
    (--map
