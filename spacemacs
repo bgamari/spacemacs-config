@@ -9,6 +9,7 @@
      notmuch python extra-langs c-c++
      html javascript markdown git github emacs-lisp shell
      idris asciidoc rust purescript
+     tracwiki-mode
      (haskell :variables haskell-enable-ghc-mod-support nil)
      )
    dotspacemacs-excluded-packages '()
@@ -24,6 +25,11 @@
      )
    )
   (dir-locals-set-directory-class "/opt/exp/ghc" 'ghc)
+
+  ;; sadly seems to be broken due to authentication issue noted in tracwiki-mode
+  ;; documentation
+  (with-eval-after-load 'tracwiki
+    (tracwiki-define-project "ghc" "https://ghc.haskell.org/trac/ghc/" t))
 
   ;; Override spacemacs' silly default
   (with-eval-after-load 'desktop
