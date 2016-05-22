@@ -254,6 +254,7 @@ This function advances the next thread when finished."
      (sgml-parent-document "users_guide.xml" "book" "chapter" "sect1")
      (sgml-parent-document "users_guide.xml" "book" "chapter")
      (buffer-file-coding-system . utf-8-unix))))
+ '(savehist-autosave-interval 600)
  '(select-enable-primary t)
  '(send-mail-function (quote sendmail-send-it))
  '(sendmail-program "/usr/bin/msmtp")
