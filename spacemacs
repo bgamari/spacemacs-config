@@ -4,6 +4,8 @@
    dotspacemacs-configuration-layer-path '("~/.spacemacs-config/private/")
    dotspacemacs-configuration-layers
    '(
+     sql
+     yaml
      auto-completion
      syntax-checking latex
      notmuch python extra-langs c-c++
