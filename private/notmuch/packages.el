@@ -39,8 +39,10 @@
        (kbd "N") 'notmuch-show-next-message
        (kbd "n") 'notmuch-show-next-open-message)
      (evilified-state-evilify-map 'notmuch-tree-mode-map :mode notmuch-tree-mode)
-     (evilified-state-evilify-map 'notmuch-search-mode-map :mode notmuch-search-mode)
-     (evilified-state-evilify-map 'notmuch-search-mode-map :mode notmuch-search-mode)
+     (evilified-state-evilify-map 'notmuch-search-mode-map :mode notmuch-search-mode
+       :bindings
+       (kbd "f") 'notmuch-search-filter)
+
      (evil-define-key 'visual notmuch-search-mode-map
               "*" 'notmuch-search-tag-all
               "a" 'notmuch-search-archive-thread
