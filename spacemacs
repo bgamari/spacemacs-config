@@ -53,7 +53,7 @@ before layers configuration."
      ledger-mode
      flatui-theme
      professional-theme
-     (flycheck-haskell :location "~/.emacs.d/flycheck-haskell"))
+     )
 
    ;; If non nil output loading progess in `*Messages*' buffer.
    dotspacemacs-verbose-loading nil
@@ -115,7 +115,7 @@ This function advances the next thread when finished."
     (setq buffer-read-only t)
     (buffer-disable-undo)
     (fundamental-mode)
-                                        ; (message "Buffer is set to read-only because it is large.  Undo also disabled.")
+    (message "Buffer is set to read-only because it is large.  Undo also disabled.")
     ))
 
 (custom-set-variables
