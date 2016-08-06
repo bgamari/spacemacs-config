@@ -1,7 +1,7 @@
 (defun dotspacemacs/layers ()
   "Configuration Layers declaration."
   (setq-default
-   dotspacemacs-configuration-layer-path '("~/.spacemacs-config/private/")
+   dotspacemacs-configuration-layer-path '("~/.spacemacs.d/private/")
    dotspacemacs-configuration-layers
    '(
      sql
@@ -34,8 +34,11 @@
     (tracwiki-define-project "ghc" "https://ghc.haskell.org/trac/ghc/" t))
 
   ;; Override spacemacs' silly default
+  ;;(setq desktop-dirname ".")
+  ;; TODO: remove below
   (with-eval-after-load 'desktop
-    (setq desktop-dirname ".")))
+    (setq desktop-dirname ".")
+    (setq desktop-path ".")))
 
 (defun dotspacemacs/init ()
   "Initialization function.
