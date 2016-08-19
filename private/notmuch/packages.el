@@ -21,6 +21,9 @@
     :defer t
     :config
     (progn
+     ;; See https://github.com/syl20bnr/spacemacs/issues/6681
+     (push "\\*notmuch.+\\*" spacemacs-useful-buffers-regexp)
+
      ;; Fix helm
      ;; See id:m2vbonxkum.fsf@guru.guru-group.fi
      (setq notmuch-address-selection-function
