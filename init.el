@@ -15,7 +15,12 @@
      nixos-mode
      (haskell :variables haskell-enable-ghc-mod-support nil)
      )
-   dotspacemacs-excluded-packages '()
+
+   dotspacemacs-excluded-packages
+     '(
+       hl-todo
+       )
+
    dotspacemacs-delete-orphan-packages t))
 
 (defun dotspacemacs/user-config ()
