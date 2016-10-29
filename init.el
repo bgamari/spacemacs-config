@@ -156,11 +156,11 @@ This function advances the next thread when finished."
  '(haskell-indentation-layout-offset 4)
  '(haskell-indentation-left-offset 4)
  '(haskell-interactive-popup-error nil t)
- '(haskell-notify-p t)
- '(haskell-process-auto-import-loaded-modules t)
- '(haskell-process-suggest-remove-import-lines t)
+ '(haskell-notify-p t t)
+ '(haskell-process-auto-import-loaded-modules t t)
+ '(haskell-process-suggest-remove-import-lines t t)
  '(haskell-process-type (quote auto))
- '(haskell-stylish-on-save nil)
+ '(haskell-stylish-on-save nil t)
  '(haskell-tags-on-save nil)
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
  '(highlight-symbol-colors
@@ -206,6 +206,15 @@ This function advances the next thread when finished."
  '(message-sendmail-extra-arguments nil)
  '(message-sendmail-f-is-evil nil)
  '(message-setup-hook (quote (mml-secure-sign-pgpmime)))
+ '(mml-secure-key-preferences
+   (quote
+    ((OpenPGP
+      (sign
+       ("Benjamin Gamari <ben@smart-cactus.org>" "9B0A6C8780B5DFE09D0D946371507CE84BEE9FBF"))
+      (encrypt))
+     (CMS
+      (sign)
+      (encrypt)))))
  '(mml-secure-openpgp-signers (quote ("Benjamin Gamari <ben@smart-cactus.org>")))
  '(mml-secure-smime-signers
    (quote
@@ -258,7 +267,7 @@ This function advances the next thread when finished."
  '(org-mobile-directory "/scpc:ben@mw0.mooo.com:mobile-org")
  '(package-selected-packages
    (quote
-    (intero github-search marshal evil-unimpaired sql-indent yaml-mode purescript-mode json-snatcher prop-menu request logito pkg-info epl flx goto-chg undo-tree pos-tip uuidgen toc-org thrift org-plus-contrib org-bullets livid-mode skewer-mode simple-httpd live-py-mode link-hint hlint-refactor helm-hoogle flycheck-purescript eyebrowse evil-visual-mark-mode evil-ediff company-ghci column-enforce-mode py-yapf ledger-mode web-completion-data f packed xterm-color haml-mode gitignore-mode rustfmt eshell-z bracketed-paste bind-key psc-ide orgit help-fns+ auto-complete diminish popup bind-map hl-todo pcache persp-mode lorem-ipsum github-clone evil-indent-plus ace-jump-helm-line hydra magit-annex ws-butler evil-magit restart-emacs helm-flx helm-company evil-mc auto-compile deferred dash spaceline idris-mode markup-faces company iedit gh which-key quelpa package-build use-package s web-mode toml-mode tagedit stan-mode spacemacs-theme shell-pop racer pyvenv pytest pyenv-mode paradox notmuch neotree mmm-mode markdown-toc magit-gitflow macrostep linum-relative leuven-theme julia-mode js2-refactor info+ indent-guide ido-vertical-mode helm-swoop helm-projectile helm-make helm-ag google-translate golden-ratio github-browse-file git-link gh-md expand-region exec-path-from-shell evil-terminal-cursor-changer evil-search-highlight-persist evil-matchit evil-jumper evil-indent-textobject evil-escape elisp-slime-nav cmake-mode clean-aindent-mode aggressive-indent ace-window ace-link avy names anaconda-mode json-rpc auctex ghc dash-functional tern anzu smartparens highlight flycheck haskell-mode projectile helm helm-core parent-mode yasnippet multiple-cursors js2-mode json-reformat magit magit-popup git-commit with-editor async markdown-mode spinner rust-mode evil magit-gh-pulls professional-theme zenburn-theme wolfram-mode window-numbering web-beautify volatile-highlights visual-fill-column vi-tilde-fringe spray smooth-scrolling smeargle slim-mode shm scss-mode scad-mode sass-mode rfringe rainbow-delimiters qml-mode pythonic psci powerline popwin pip-requirements pcre2el page-break-lines open-junk-file multi-term move-text monokai-theme matlab-mode llvm-mode less-css-mode json-mode js-doc jade-mode hy-mode hungry-delete hindent highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-pydoc helm-mode-manager helm-gitignore helm-descbinds helm-css-scss helm-c-yasnippet haskell-snippets gitconfig-mode gitattributes-mode git-timemachine git-messenger gist fringe-helper flycheck-rust flycheck-pos-tip flycheck-haskell flx-ido flatui-theme fill-column-indicator fancy-battery evil-visualstar evil-tutor evil-surround evil-numbers evil-nerd-commenter evil-lisp-state evil-iedit-state evil-exchange evil-args evil-anzu eval-sexp-fu eshell-prompt-extras esh-help emmet-mode dts-mode disaster define-word cython-mode company-web company-tern company-statistics company-racer company-quickhelp company-ghc company-cabal company-c-headers company-auctex company-anaconda coffee-mode cmm-mode clang-format buffer-move auto-yasnippet auto-highlight-symbol auto-dictionary arduino-mode adoc-mode adaptive-wrap ac-ispell)))
+    (pug-mode org ht yapfify py-isort dumb-jump cargo intero github-search marshal evil-unimpaired sql-indent yaml-mode purescript-mode json-snatcher prop-menu request logito pkg-info epl flx goto-chg undo-tree pos-tip uuidgen toc-org thrift org-plus-contrib org-bullets livid-mode skewer-mode simple-httpd live-py-mode link-hint hlint-refactor helm-hoogle flycheck-purescript eyebrowse evil-visual-mark-mode evil-ediff company-ghci column-enforce-mode py-yapf ledger-mode web-completion-data f packed xterm-color haml-mode gitignore-mode rustfmt eshell-z bracketed-paste bind-key psc-ide orgit help-fns+ auto-complete diminish popup bind-map hl-todo pcache persp-mode lorem-ipsum github-clone evil-indent-plus ace-jump-helm-line hydra magit-annex ws-butler evil-magit restart-emacs helm-flx helm-company evil-mc auto-compile deferred dash spaceline idris-mode markup-faces company iedit gh which-key quelpa package-build use-package s web-mode toml-mode tagedit stan-mode spacemacs-theme shell-pop racer pyvenv pytest pyenv-mode paradox notmuch neotree mmm-mode markdown-toc magit-gitflow macrostep linum-relative leuven-theme julia-mode js2-refactor info+ indent-guide ido-vertical-mode helm-swoop helm-projectile helm-make helm-ag google-translate golden-ratio github-browse-file git-link gh-md expand-region exec-path-from-shell evil-terminal-cursor-changer evil-search-highlight-persist evil-matchit evil-jumper evil-indent-textobject evil-escape elisp-slime-nav cmake-mode clean-aindent-mode aggressive-indent ace-window ace-link avy names anaconda-mode json-rpc auctex ghc dash-functional tern anzu smartparens highlight flycheck haskell-mode projectile helm helm-core parent-mode yasnippet multiple-cursors js2-mode json-reformat magit magit-popup git-commit with-editor async markdown-mode spinner rust-mode evil magit-gh-pulls professional-theme zenburn-theme wolfram-mode window-numbering web-beautify volatile-highlights visual-fill-column vi-tilde-fringe spray smooth-scrolling smeargle slim-mode shm scss-mode scad-mode sass-mode rfringe rainbow-delimiters qml-mode pythonic psci powerline popwin pip-requirements pcre2el page-break-lines open-junk-file multi-term move-text monokai-theme matlab-mode llvm-mode less-css-mode json-mode js-doc jade-mode hy-mode hungry-delete hindent highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-pydoc helm-mode-manager helm-gitignore helm-descbinds helm-css-scss helm-c-yasnippet haskell-snippets gitconfig-mode gitattributes-mode git-timemachine git-messenger gist fringe-helper flycheck-rust flycheck-pos-tip flycheck-haskell flx-ido flatui-theme fill-column-indicator fancy-battery evil-visualstar evil-tutor evil-surround evil-numbers evil-nerd-commenter evil-lisp-state evil-iedit-state evil-exchange evil-args evil-anzu eval-sexp-fu eshell-prompt-extras esh-help emmet-mode dts-mode disaster define-word cython-mode company-web company-tern company-statistics company-racer company-quickhelp company-ghc company-cabal company-c-headers company-auctex company-anaconda coffee-mode cmm-mode clang-format buffer-move auto-yasnippet auto-highlight-symbol auto-dictionary arduino-mode adoc-mode adaptive-wrap ac-ispell)))
  '(pos-tip-background-color "#eee8d5")
  '(pos-tip-foreground-color "#586e75")
  '(ring-bell-function (quote ignore))
