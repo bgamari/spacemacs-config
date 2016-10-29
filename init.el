@@ -12,6 +12,7 @@
      html javascript markdown git github emacs-lisp shell
      idris asciidoc rust purescript
      tracwiki-mode
+     nixos-mode
      (haskell :variables haskell-enable-ghc-mod-support nil)
      )
    dotspacemacs-excluded-packages '()
