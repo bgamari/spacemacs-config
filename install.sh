@@ -1,7 +1,8 @@
 #!/bin/bash
 
-if [ ! -d $HOME/.emacs.d ]; then
-    git clone git://github.com/syl20bnr/spacemacs $HOME/.emacs.d
+git submodule update --init
+if [ ! -h $HOME/.emacs.d ]; then
+    ln -s $HOME/.spacemacs.d/spacemacs $HOME/.emacs.d
 fi
 
 cabal install ghc-mod stylish-haskell hlint
