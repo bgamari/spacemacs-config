@@ -1,3 +1,3 @@
 [submodule "spacemacs-root"]
 	path = spacemacs-root
-	url = git://github.com/syl20bnr/spacemacs
+	url = git://github.com/bgamari/spacemacs
