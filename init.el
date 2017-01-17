@@ -17,15 +17,16 @@
      )
 
    dotspacemacs-excluded-packages
-     '(
-       hl-todo
-       )
+   '(
+     hl-todo ;https://github.com/tarsius/hl-todo/issues/14
+     )
 
    dotspacemacs-delete-orphan-packages t))
 
 (defun dotspacemacs/user-config ()
   "Called at very end of initialization"
 
+  ;; GHC development
   (dir-locals-set-class-variables
    'ghc
    '((haskell-mode . ((flycheck-disabled-checkers . (haskell-ghc))
@@ -33,6 +34,16 @@
      )
    )
   (dir-locals-set-directory-class "/opt/exp/ghc" 'ghc)
+
+  (add-to-list 'auto-mode-alist
+               '("Parser.y\\'" . fundamental-mode)
+               '("\\.\\+.T\\'" . python-mode)
+               )
+  (add-hook 'haskell-mode-hook
+            (lambda ()
+              (cond ((string-match "DynFlags.hs") (flycheck-mode 0)))
+              (cond ((string-match "Parser.y") (fundamental-mode)))
+              ))
 
   ;; sadly seems to be broken due to authentication issue noted in tracwiki-mode
   ;; documentation
