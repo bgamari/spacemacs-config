@@ -36,9 +36,16 @@
   (dir-locals-set-directory-class "/opt/exp/ghc" 'ghc)
 
   (add-to-list 'auto-mode-alist
-               '("Parser.y\\'" . fundamental-mode)
-               '("\\.\\+.T\\'" . python-mode)
-               )
+               '(
+                 '("\\.\\+/Parser.y\\'" . fundamental-mode)
+                 '("\\.\\+.T\\'" . python-mode)
+                 '("\\.\\+.dump-prep\\'" . fundamental-mode)
+                 '("\\.\\+.dump-spec\\'" . ghc-core-mode)
+                 '("\\.\\+.dump-ds\\'" . ghc-core-mode)
+                 '("\\.\\+.verbose-core2core.split\\'" . ghc-core-mode)
+                 '("\\.\\+.verbose-core2core.split/\\.\\+\\'" . ghc-core-mode)
+                 ))
+
   (add-hook 'haskell-mode-hook
             (lambda ()
               (cond ((string-match "DynFlags.hs") (flycheck-mode 0)))
