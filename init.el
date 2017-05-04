@@ -84,21 +84,22 @@ values."
    )
   (dir-locals-set-directory-class "/opt/exp/ghc" 'ghc)
 
-  (add-to-list 'auto-mode-alist
-               '(
-                 '("\\.\\+/Parser.y\\'" . fundamental-mode)
-                 '("\\.\\+.T\\'" . python-mode)
-                 '("\\.\\+.dump-prep\\'" . fundamental-mode)
-                 '("\\.\\+.dump-spec\\'" . ghc-core-mode)
-                 '("\\.\\+.dump-ds\\'" . ghc-core-mode)
-                 '("\\.\\+.verbose-core2core.split\\'" . ghc-core-mode)
-                 '("\\.\\+.verbose-core2core.split/\\.\\+\\'" . ghc-core-mode)
-                 ))
+  (setq-default
+   auto-mode-alist
+   (append '(("Parser\\.y\\'" . fundamental-mode)
+             ("\\.T\\'" . python-mode)
+             ("\\.dump-prep\\'" . ghc-core-mode)
+             ("\\.dump-spec\\'" . ghc-core-mode)
+             ("\\.dump-ds\\'" . ghc-core-mode)
+             ("\\.verbose-core2core.split\\'" . ghc-core-mode)
+             ("\\.verbose-core2core.split/.+\\'" . ghc-core-mode)
+             )
+           auto-mode-alist))
 
   (add-hook 'haskell-mode-hook
             (lambda ()
-              (cond ((string-match "DynFlags.hs") (flycheck-mode 0)))
-              (cond ((string-match "Parser.y") (fundamental-mode)))
+              (cond ((string-match "DynFlags\\.hs" (buffer-file-name)) . (flycheck-mode 0)))
+              (cond ((string-match "Parser\\.y" (buffer-file-name)) . (fundamental-mode)))
               ))
 
   ;; Override spacemacs' silly default
