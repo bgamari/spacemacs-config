@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 git submodule update --init
 if [ ! -h $HOME/.emacs.d ]; then
