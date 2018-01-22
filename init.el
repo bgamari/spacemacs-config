@@ -268,6 +268,8 @@ This function advances the next thread when finished."
  '(message-forward-ignored-headers
    (quote
     ("^Content-Transfer-Encoding:" "^X-" "^Received:" "^DKIM-" "^Authentication-Results:")))
+ '(message-ignored-mail-headers
+   "^\\([GF]cc\\|Resent-Fcc\\|Xref\\|X-Draft-From\\|X-Gnus-Agent-Meta-Information\\|Date\\):")
  '(message-mode-hook nil)
  '(message-sendmail-envelope-from (quote header))
  '(message-sendmail-extra-arguments nil)
@@ -352,10 +354,11 @@ This function advances the next thread when finished."
  '(savehist-autosave-interval 600)
  '(select-enable-primary t)
  '(send-mail-function (quote sendmail-send-it))
- '(sendmail-program "/usr/bin/msmtp")
+ '(sendmail-program "msmtp")
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
  '(sql-product (quote postgres))
  '(tags-case-fold-search nil)
+ '(user-full-name "Ben Gamari")
  '(user-mail-address "ben@smart-cactus.org")
  '(vc-annotate-background "#2B2B2B")
  '(vc-annotate-color-map
