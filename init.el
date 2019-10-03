@@ -39,7 +39,8 @@ This function should only modify configuration layer settings."
    ;; List of configuration layers to load.
    ;; `M-m f e R' (Emacs style) to install them.
    dotspacemacs-configuration-layers
-   '(octave
+   '(perl5
+     octave
      helm
      emacs-lisp
      neotree
@@ -60,6 +61,10 @@ This function should only modify configuration layer settings."
      nixos
      (haskell :variables haskell-enable-ghc-mod-support nil)
      version-control
+     lsp
+     (haskell :variables
+              haskell-completion-backend 'ghci
+              haskell-process-type 'ghci)
      )
 
    ;; List of additional packages that will be installed without being
@@ -809,6 +814,24 @@ This function is called at the very end of Spacemacs initialization."
  '(hl-fg-colors
    (quote
     ("#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3")))
+ '(hl-todo-keyword-faces
+   (quote
+    (("TODO" . "#dc752f")
+     ("NEXT" . "#dc752f")
+     ("THEM" . "#2d9574")
+     ("PROG" . "#4f97d7")
+     ("OKAY" . "#4f97d7")
+     ("DONT" . "#f2241f")
+     ("FAIL" . "#f2241f")
+     ("DONE" . "#86dc2f")
+     ("NOTE" . "#b1951d")
+     ("KLUDGE" . "#b1951d")
+     ("HACK" . "#b1951d")
+     ("TEMP" . "#b1951d")
+     ("FIXME" . "#dc752f")
+     ("XXX" . "#dc752f")
+     ("XXXX" . "#dc752f")
+     ("???" . "#dc752f"))))
  '(if (version< emacs-version "24.4"))
  '(ledger-binary-path "hledger")
  '(magit-diff-use-overlays nil)
@@ -837,7 +860,8 @@ This function is called at the very end of Spacemacs initialization."
     ((OpenPGP
       (sign
        ("Benjamin Gamari <ben@smart-cactus.org>" "9B0A6C8780B5DFE09D0D946371507CE84BEE9FBF"))
-      (encrypt))
+      (encrypt
+       ("ben@smart-cactus.org" "FE5AB6C91FEA597C3B31180B73EDE9E8CFBAEF01")))
      (CMS
       (sign)
       (encrypt)))))
@@ -851,9 +875,8 @@ This function is called at the very end of Spacemacs initialization."
    (quote
     ((:name "inbox" :query "tag:inbox" :key "i")
      (:name "well-typed" :query "tag:inbox and tag:well-typed")
-     (:name "drafts" :query "tag:draft" :key "d")
+     (:name "GitLab mentions" :query "tag:unread and from:gitlab.haskell.org and @bgamari and commented" :key "d")
      (:name "todo" :query "tag:todo")
-     (:name "to-review" :query "tag:to-review")
      (:name "unseen ghc tickets" :query "tag:ghc-tickets and tag:unseen"))))
  '(notmuch-search-line-faces
    (quote
@@ -893,7 +916,7 @@ This function is called at the very end of Spacemacs initialization."
  '(org-mobile-directory "/scpc:ben@mw0.mooo.com:mobile-org")
  '(package-selected-packages
    (quote
-    (dhall-mode yasnippet-snippets symon string-inflection spaceline-all-the-icons all-the-icons memoize ruby-refactor ruby-hash-syntax pippel pipenv password-generator overseer nameless magithub ghub+ apiwrap magit-svn json-navigator hierarchy importmagic epc ctable concurrent impatient-mode htmlize helm-xref helm-rtags helm-purpose window-purpose imenu-list helm-notmuch google-c-style git-gutter-fringe+ git-gutter-fringe git-gutter+ git-gutter flyspell-correct-helm flyspell-correct flycheck-rtags evil-lion evil-goggles evil-cleverparens paredit editorconfig diff-hl dante lcr counsel-projectile counsel swiper ivy company-rtags rtags company-php ac-php-core xcscope centered-cursor-mode browse-at-remote font-lock+ rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake minitest chruby bundler inf-ruby ghub let-alist auctex-latexmk powershell creole-mode phpunit phpcbf php-extras php-auto-yasnippets drupal-mode php-mode ascii-art-to-unicode winum fuzzy solarized-theme groovy-mode csv-mode seq nix-mode hide-comnt helm-nixos-options company-nixos-options nixos-options pug-mode org ht yapfify py-isort dumb-jump cargo intero github-search marshal evil-unimpaired sql-indent yaml-mode purescript-mode json-snatcher prop-menu request logito pkg-info epl flx goto-chg undo-tree pos-tip uuidgen toc-org thrift org-plus-contrib org-bullets livid-mode skewer-mode simple-httpd live-py-mode link-hint hlint-refactor helm-hoogle flycheck-purescript eyebrowse evil-visual-mark-mode evil-ediff company-ghci column-enforce-mode py-yapf ledger-mode web-completion-data f packed xterm-color haml-mode gitignore-mode rustfmt eshell-z bracketed-paste bind-key psc-ide orgit help-fns+ auto-complete diminish popup bind-map hl-todo pcache persp-mode lorem-ipsum github-clone evil-indent-plus ace-jump-helm-line hydra magit-annex ws-butler evil-magit restart-emacs helm-flx helm-company evil-mc auto-compile deferred dash spaceline idris-mode markup-faces company iedit gh which-key quelpa package-build use-package s web-mode toml-mode tagedit stan-mode spacemacs-theme shell-pop racer pyvenv pytest pyenv-mode paradox notmuch neotree mmm-mode markdown-toc magit-gitflow macrostep linum-relative leuven-theme julia-mode js2-refactor info+ indent-guide ido-vertical-mode helm-swoop helm-projectile helm-make helm-ag google-translate golden-ratio github-browse-file git-link gh-md expand-region exec-path-from-shell evil-terminal-cursor-changer evil-search-highlight-persist evil-matchit evil-jumper evil-indent-textobject evil-escape elisp-slime-nav cmake-mode clean-aindent-mode aggressive-indent ace-window ace-link avy names anaconda-mode json-rpc auctex ghc dash-functional tern anzu smartparens highlight flycheck haskell-mode projectile helm helm-core parent-mode yasnippet multiple-cursors js2-mode json-reformat magit magit-popup git-commit with-editor async markdown-mode spinner rust-mode evil magit-gh-pulls professional-theme zenburn-theme web-beautify volatile-highlights visual-fill-column vi-tilde-fringe spray smooth-scrolling smeargle slim-mode shm scss-mode scad-mode sass-mode rfringe rainbow-delimiters qml-mode pythonic psci powerline popwin pip-requirements pcre2el page-break-lines open-junk-file multi-term move-text monokai-theme matlab-mode llvm-mode less-css-mode json-mode js-doc jade-mode hy-mode hungry-delete hindent highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-pydoc helm-mode-manager helm-gitignore helm-descbinds helm-css-scss helm-c-yasnippet haskell-snippets gitconfig-mode gitattributes-mode git-timemachine git-messenger gist fringe-helper flycheck-rust flycheck-pos-tip flycheck-haskell flx-ido flatui-theme fill-column-indicator fancy-battery evil-visualstar evil-tutor evil-surround evil-numbers evil-nerd-commenter evil-lisp-state evil-iedit-state evil-exchange evil-args evil-anzu eval-sexp-fu eshell-prompt-extras esh-help emmet-mode dts-mode disaster define-word cython-mode company-web company-tern company-statistics company-racer company-quickhelp company-ghc company-cabal company-c-headers company-auctex company-anaconda coffee-mode cmm-mode clang-format buffer-move auto-yasnippet auto-highlight-symbol auto-dictionary arduino-mode adoc-mode adaptive-wrap ac-ispell)))
+    (writeroom-mode seeing-is-believing prettier-js helm-git-grep gitignore-templates forge closql emacsql-sqlite emacsql doom-modeline eldoc-eval shrink-path cquery ccls dotenv-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake minitest chruby bundler inf-ruby ghub let-alist auctex-latexmk powershell creole-mode phpunit phpcbf php-extras php-auto-yasnippets drupal-mode php-mode ascii-art-to-unicode winum fuzzy solarized-theme groovy-mode csv-mode seq nix-mode hide-comnt helm-nixos-options company-nixos-options nixos-options pug-mode org ht yapfify py-isort dumb-jump cargo intero github-search marshal evil-unimpaired sql-indent yaml-mode purescript-mode json-snatcher prop-menu request logito pkg-info epl flx goto-chg undo-tree pos-tip uuidgen toc-org thrift org-plus-contrib org-bullets livid-mode skewer-mode simple-httpd live-py-mode link-hint hlint-refactor helm-hoogle flycheck-purescript eyebrowse evil-visual-mark-mode evil-ediff company-ghci column-enforce-mode py-yapf ledger-mode web-completion-data f packed xterm-color haml-mode gitignore-mode rustfmt eshell-z bracketed-paste bind-key psc-ide orgit help-fns+ auto-complete diminish popup bind-map hl-todo pcache persp-mode lorem-ipsum github-clone evil-indent-plus ace-jump-helm-line hydra magit-annex ws-butler evil-magit restart-emacs helm-flx helm-company evil-mc auto-compile deferred dash spaceline idris-mode markup-faces company iedit gh which-key quelpa package-build use-package s web-mode toml-mode tagedit stan-mode spacemacs-theme shell-pop racer pyvenv pytest pyenv-mode paradox notmuch neotree mmm-mode markdown-toc magit-gitflow macrostep linum-relative leuven-theme julia-mode js2-refactor info+ indent-guide ido-vertical-mode helm-swoop helm-projectile helm-make helm-ag google-translate golden-ratio github-browse-file git-link gh-md expand-region exec-path-from-shell evil-terminal-cursor-changer evil-search-highlight-persist evil-matchit evil-jumper evil-indent-textobject evil-escape elisp-slime-nav cmake-mode clean-aindent-mode aggressive-indent ace-window ace-link avy names anaconda-mode json-rpc auctex ghc dash-functional tern anzu smartparens highlight flycheck haskell-mode projectile helm helm-core parent-mode yasnippet multiple-cursors js2-mode json-reformat magit magit-popup git-commit with-editor async markdown-mode spinner rust-mode evil magit-gh-pulls professional-theme zenburn-theme web-beautify volatile-highlights visual-fill-column vi-tilde-fringe spray smooth-scrolling smeargle slim-mode shm scss-mode scad-mode sass-mode rfringe rainbow-delimiters qml-mode pythonic psci powerline popwin pip-requirements pcre2el page-break-lines open-junk-file multi-term move-text monokai-theme matlab-mode llvm-mode less-css-mode json-mode js-doc jade-mode hy-mode hungry-delete hindent highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-pydoc helm-mode-manager helm-gitignore helm-descbinds helm-css-scss helm-c-yasnippet haskell-snippets gitconfig-mode gitattributes-mode git-timemachine git-messenger gist fringe-helper flycheck-rust flycheck-pos-tip flycheck-haskell flx-ido flatui-theme fill-column-indicator fancy-battery evil-visualstar evil-tutor evil-surround evil-numbers evil-nerd-commenter evil-lisp-state evil-iedit-state evil-exchange evil-args evil-anzu eval-sexp-fu eshell-prompt-extras esh-help emmet-mode dts-mode disaster define-word cython-mode company-web company-tern company-statistics company-racer company-quickhelp company-ghc company-cabal company-c-headers company-auctex company-anaconda coffee-mode cmm-mode clang-format buffer-move auto-yasnippet auto-highlight-symbol auto-dictionary arduino-mode adoc-mode adaptive-wrap ac-ispell)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(pos-tip-background-color "#eee8d5")
  '(pos-tip-foreground-color "#586e75")
@@ -972,6 +995,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 118 :width normal :foundry "PfEd" :family "Inconsolata"))))
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil))))
  '(evil-search-highlight-persist-highlight-face ((t (:inherit region :background "burlywood4"))))
