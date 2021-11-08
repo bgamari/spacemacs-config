@@ -599,7 +599,7 @@ This function advances the next thread when finished."
    (quote
     ((OpenPGP
       (sign
-       ("Benjamin Gamari <ben@smart-cactus.org>" "9B0A6C8780B5DFE09D0D946371507CE84BEE9FBF"))
+       ("Benjamin Gamari <ben@smart-cactus.org>" "FE5AB6C91FEA597C3B31180B73EDE9E8CFBAEF01"))
       (encrypt))
      (CMS
       (sign)
